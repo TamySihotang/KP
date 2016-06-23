@@ -1,5 +1,5 @@
 <?php
-//
+
 class RegistrationForm extends CFormModel {
 // attributes
 // for bio

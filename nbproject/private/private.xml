@@ -3,9 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/views/layouts/main.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/models/account.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/components/UserIdentity.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/office/index.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/serialnumber.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/addSparepart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SparepartController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/sparepart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/office/_view.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SerialnumberController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/AddSparePart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_viewSpare.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/index.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_view.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/update.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/OfficeController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/addSparepart.php</file>
         </group>
     </open-files>
 </project-private>

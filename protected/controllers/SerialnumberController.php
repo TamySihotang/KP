@@ -32,7 +32,7 @@ class SerialnumberController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','addSparepart'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -79,7 +79,53 @@ class SerialnumberController extends Controller
 		));
 	}
 
-	/**
+	
+        public function actionAddSparepart()
+        {
+            $add= new AddSparePart;
+          
+// collect user input data
+        if (isset($_POST['AddSparePart'])) {
+            $add->attributes = $_POST['AddSparePart'];
+            $add->attributes = $_POST['AddSparePart'];
+// validate user input and redirect to the previous page if valid
+            if ($add->validate()) {
+// create an account model
+                $spare = new sparepart;
+                $spare->category= $add->category;
+                $spare->series= $add->series;
+                $spare->type= $add->type;
+                $spare->model= $add->model;
+                $spare->aliasname= $add->aliasname;
+                $spare->partno= $add->partno;
+                $spare->status= $add->status;
+                $spare->office_id = Yii::app()->user->id;
+//                $account->password = $registration->password;
+//                $account->email = $registration->email;
+//                $account->joinDate = new CDbExpression('NOW()');
+//                $account->level_id = 1;
+                if ($spare->save()) {
+                    $serial = new serialnumber;
+                    $serial->attributes = $add->attributes;
+                    $serial->sparepart_id= $spare->id;
+                    if ($serial->save()) {
+// redirects to index page
+                        $this->redirect(array('index'));
+                    } else {
+// what's wrong? get the error message
+                        $add->addErrors($serial->getErrors());
+                    }
+                } else {
+// what's wrong? get the error message
+                    $add->addErrors($spare->getErrors());
+                }
+            }
+        }
+// display the registration form
+        $this->render('addSparepart', array('model' => $add));
+    }
+
+        /**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
@@ -91,9 +137,9 @@ class SerialnumberController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['serialnumber']))
+		if(isset($_POST['sparepart']))
 		{
-			$model->attributes=$_POST['serialnumber'];
+			$model->attributes=$_POST['sparepart'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -102,6 +148,30 @@ class SerialnumberController extends Controller
 			'model'=>$model,
 		));
 	}
+        
+        /**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
+	 */
+//	public function actionUpdate($id)
+//                {
+//		$model=$this->loadModel($id);
+//
+//		// Uncomment the following line if AJAX validation is needed
+//		// $this->performAjaxValidation($model);
+//
+//		if(isset($_POST['serialnumber']))
+//		{
+//			$model->attributes=$_POST['serialnumber'];
+//			if($model->save())
+//				$this->redirect(array('view','id'=>$model->id));
+//		}
+//
+//		$this->render('update',array(
+//			'model'=>$model,
+//		));
+//	}
 
 	/**
 	 * Deletes a particular model.

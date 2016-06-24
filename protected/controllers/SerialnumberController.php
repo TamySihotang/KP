@@ -28,11 +28,11 @@ class SerialnumberController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','viewSpare'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','addSparepart'),
+				'actions'=>array('create','update','addSparepart','updateSparepart'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -53,6 +53,19 @@ class SerialnumberController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+		));
+	}
+        public function actionViewSpare()
+	{
+		$model=new serialnumber('search');
+//                $model2 = new serialnumber('searchWithSparepart');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['serialnumber']))
+			$model->attributes=$_GET['serialnumber'];
+
+		$this->render('viewSpare',array(
+			'model'=>$model,
+//			'model2'=>$model2,
 		));
 	}
 
@@ -110,7 +123,7 @@ class SerialnumberController extends Controller
                     $serial->sparepart_id= $spare->id;
                     if ($serial->save()) {
 // redirects to index page
-                        $this->redirect(array('index'));
+                        $this->redirect(array('viewSpare'));
                     } else {
 // what's wrong? get the error message
                         $add->addErrors($serial->getErrors());
@@ -125,6 +138,51 @@ class SerialnumberController extends Controller
         $this->render('addSparepart', array('model' => $add));
     }
 
+    public function actionUpdateSparepart()
+        {
+            $add= new AddSparePart;
+          
+// collect user input data
+        if (isset($_POST['AddSparePart'])) {
+            $add->attributes = $_POST['AddSparePart'];
+            $add->attributes = $_POST['AddSparePart'];
+// validate user input and redirect to the previous page if valid
+            if ($add->validate()) {
+// create an account model
+                $spare = new sparepart;
+                $spare->category= $add->category;
+                $spare->series= $add->series;
+                $spare->type= $add->type;
+                $spare->model= $add->model;
+                $spare->aliasname= $add->aliasname;
+                $spare->partno= $add->partno;
+                $spare->status= $add->status;
+                $spare->office_id = Yii::app()->user->id;
+//                $account->password = $registration->password;
+//                $account->email = $registration->email;
+//                $account->joinDate = new CDbExpression('NOW()');
+//                $account->level_id = 1;
+                if ($spare->save()) {
+                    $serial = new serialnumber;
+                    $serial->attributes = $add->attributes;
+                    $serial->sparepart_id= $spare->id;
+                    if ($serial->save()) {
+// redirects to index page
+                        $this->redirect(array('viewSpare'));
+                    } else {
+// what's wrong? get the error message
+                        $add->addErrors($serial->getErrors());
+                    }
+                } else {
+// what's wrong? get the error message
+                    $add->addErrors($spare->getErrors());
+                }
+            }
+        }
+// display the registration form
+        $this->render('addSparepart', array('model' => $add));
+    }
+    
         /**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

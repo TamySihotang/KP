@@ -88,9 +88,25 @@ class serialnumber extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'pagination'=>array(
+                            'pageSize'=>5
+                        )
 		));
 	}
+        public function searchWithSparepart($data)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('sparepart_id',$this->sparepart_id);
+		$criteria->compare('serial_number',$this->serial_number,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

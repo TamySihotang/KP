@@ -8,10 +8,11 @@
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/addSparepart.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SparepartController.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/models/sparepart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/admin.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/office/_view.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/viewSpare.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SerialnumberController.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/models/AddSparePart.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_viewSpare.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/index.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_view.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/update.php</file>

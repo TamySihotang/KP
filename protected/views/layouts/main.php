@@ -31,6 +31,9 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Kantor Cabang', 'url'=>array('/office', 'view'=>'office')),
+				array('label'=>'Daftar Kantor Cabang', 'url'=>array('/office/register')),
+				array('label'=>'Sparepart', 'url'=>array('/serialnumber/viewSpare')),
+				array('label'=>'Tambah Sparepart', 'url'=>array('/serialnumber/addSparepart')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

@@ -3,20 +3,40 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/views/office/index.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/models/serialnumber.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/viewSparepart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_formUpdateSpare.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/addSparepart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/admin.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/MemberController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/components/UserIdentity.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/viewOffice.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/TOffice.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SerialnumberController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/account.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/AddSparePart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/office.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/view.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/index.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_view.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/updateSparepart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/config/main.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/AccountController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/serialnumber.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SiteController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/create.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SparepartController.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/models/sparepart.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/admin.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/views/office/_view.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/viewSerial.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/history.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/viewSpare.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/SerialnumberController.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/models/AddSparePart.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/index.php</file>
-            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_view.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/TSparepart.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/sparepart/view.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/update.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/_form.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/controllers/OfficeController.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/views/office/register.php</file>
+            <file>file:/C:/xampp/htdocs/sparelog/protected/models/RegistrationForm.php</file>
             <file>file:/C:/xampp/htdocs/sparelog/protected/views/serialnumber/addSparepart.php</file>
         </group>
     </open-files>

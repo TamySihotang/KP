@@ -1,25 +1,33 @@
 <?php
 
 /**
- * This is the model class for table "t_serialnumber".
+ * This is the model class for table "t_sparepart".
  *
- * The followings are the available columns in table 't_serialnumber':
+ * The followings are the available columns in table 't_sparepart':
  * @property integer $id
- * @property integer $sparepart_id
- * @property string $serial_number
+ * @property integer $office_id
+ * @property string $category
+ * @property string $series
+ * @property string $type
+ * @property string $model
+ * @property string $aliasname
+ * @property string $partno
+ * @property string $status
+ * @property integer $stock
  *
  * The followings are the available model relations:
  * @property THistory[] $tHistories
- * @property TSparepart $sparepart
+ * @property TSerialnumber[] $tSerialnumbers
+ * @property TOffice $office
  */
-class serialnumber extends CActiveRecord
+class TSparepart extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 't_serialnumber';
+		return 't_sparepart';
 	}
 
 	/**
@@ -30,12 +38,12 @@ class serialnumber extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sparepart_id, serial_number', 'required'),
-			array('sparepart_id', 'numerical', 'integerOnly'=>true),
-			array('serial_number', 'length', 'max'=>64),
+			array('office_id, category, series, type, model, aliasname, partno, status, stock', 'required'),
+			array('office_id, stock', 'numerical', 'integerOnly'=>true),
+			array('category, series, type, model, aliasname, partno, status', 'length', 'max'=>64),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, sparepart_id, serial_number', 'safe', 'on'=>'search'),
+			array('id, office_id, category, series, type, model, aliasname, partno, status, stock', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,8 +55,9 @@ class serialnumber extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tHistories' => array(self::HAS_MANY, 'history', 'serialnumber_id'),
-			'sparepart' => array(self::BELONGS_TO, 'sparepart', 'sparepart_id'),
+			'tHistories' => array(self::HAS_MANY, 'THistory', 'sparepart_id'),
+			'tSerialnumbers' => array(self::HAS_MANY, 'TSerialnumber', 'sparepart_id'),
+			'office' => array(self::BELONGS_TO, 'TOffice', 'office_id'),
 		);
 	}
 
@@ -59,8 +68,15 @@ class serialnumber extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'sparepart_id' => 'Sparepart',
-			'serial_number' => 'Serial Number',
+			'office_id' => 'Office',
+			'category' => 'Category',
+			'series' => 'Series',
+			'type' => 'Type',
+			'model' => 'Model',
+			'aliasname' => 'Aliasname',
+			'partno' => 'Partno',
+			'status' => 'Status',
+			'stock' => 'Stock',
 		);
 	}
 
@@ -83,35 +99,26 @@ class serialnumber extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('sparepart_id',$this->sparepart_id);
-		$criteria->compare('serial_number',$this->serial_number,true);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-                        'pagination'=>array(
-                            'pageSize'=>5
-                        )
-		));
-	}
-        public function searchWithSparepart($data)
-	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('id',$this->id);
-		$criteria->compare('sparepart_id',$this->sparepart_id);
-		$criteria->compare('serial_number',$this->serial_number,true);
+		$criteria->compare('office_id',$this->office_id);
+		$criteria->compare('category',$this->category,true);
+		$criteria->compare('series',$this->series,true);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('model',$this->model,true);
+		$criteria->compare('aliasname',$this->aliasname,true);
+		$criteria->compare('partno',$this->partno,true);
+		$criteria->compare('status',$this->status,true);
+		$criteria->compare('stock',$this->stock);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return serialnumber the static model class
+	 * @return TSparepart the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

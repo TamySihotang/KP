@@ -11,12 +11,14 @@ public $aliasname;
 public $partno;
 public $status;
 public $serial_number;
+public $stock;
+public $history;
 // applied rules for validation
 public function rules() {
     return array(
     // safe attributes are assigned-able in all scenario types
         array('category, series, type, model,
-        aliasname, partno, status, serial_number', 'safe'),
+        aliasname, partno, status, serial_number,stock, history', 'safe'),
     );
 }
 // sets attribute labels for view labeling
@@ -29,7 +31,10 @@ return array(
 'aliasname' => 'Aliasname',
 'status' => 'Status',
 'serial_number' => 'Serial Number',
+'stock' => 'Stock',
+'history' => 'Description',
 );
 }
+
 }
 ?>

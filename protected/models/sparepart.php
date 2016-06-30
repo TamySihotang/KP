@@ -13,6 +13,7 @@
  * @property string $aliasname
  * @property string $partno
  * @property string $status
+ * @property integer $stock
  *
  * The followings are the available model relations:
  * @property THistory[] $tHistories
@@ -37,7 +38,7 @@ class sparepart extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('office_id, category, series, type, model, aliasname, partno, status', 'required'),
+			array('office_id, category, series, type, model, aliasname, partno, status,stock', 'required'),
 			array('office_id', 'numerical', 'integerOnly'=>true),
 			array('category, series, type, model, aliasname, partno, status', 'length', 'max'=>64),
 			// The following rule is used by search().
@@ -56,7 +57,9 @@ class sparepart extends CActiveRecord
 		return array(
 			'tHistories' => array(self::HAS_MANY, 'THistory', 'sparepart_id'),
 			'tSerialnumbers' => array(self::HAS_MANY, 'TSerialnumber', 'sparepart_id'),
+			'tSpare' => array(self::HAS_MANY, 'sparepart', 'sparepart_id'),
 			'office' => array(self::BELONGS_TO, 'TOffice', 'office_id'),
+
 		);
 	}
 
@@ -75,6 +78,7 @@ class sparepart extends CActiveRecord
 			'aliasname' => 'Aliasname',
 			'partno' => 'Partno',
 			'status' => 'Status',
+                       'stock'=>'Stock'
 		);
 	}
 
@@ -105,13 +109,36 @@ class sparepart extends CActiveRecord
 		$criteria->compare('aliasname',$this->aliasname,true);
 		$criteria->compare('partno',$this->partno,true);
 		$criteria->compare('status',$this->status,true);
+		$criteria->compare('stock',$this->stock,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+	public function search2($id)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
-	/**
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('office_id',$this->office_id);
+		$criteria->compare('category',$this->category,true);
+		$criteria->compare('series',$this->series,true);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('model',$this->model,true);
+		$criteria->compare('aliasname',$this->aliasname,true);
+		$criteria->compare('partno',$this->partno,true);
+		$criteria->compare('status',$this->status,true);
+		$criteria->compare('stock',$id);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+        
+
+        /**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.

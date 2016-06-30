@@ -12,7 +12,6 @@ $this->breadcrumbs = array(
 $form = $this->beginWidget('CActiveForm', array(
 'id' => 'registration-form',
 'enableAjaxValidation' => false,
-'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 ));
 ?>
 <p class="note">Fields with <span class="required">*</span> are 
@@ -45,28 +44,18 @@ required.</p>
 </div>
 <div class="row">
 <?php echo $form->labelEx($model, 'partno'); ?>
-<?php echo $form->textField($model, 'partno'); ?>
+<?php echo $form->passwordField($model, 'partno'); ?>
 <?php echo $form->error($model, 'partno'); ?>
 </div>
 <div class="row">
 <?php echo $form->labelEx($model, 'status'); ?>
-<?php echo $form->textField($model, 'status'); ?>
+<?php echo $form->passwordField($model, 'status'); ?>
 <?php echo $form->error($model, 'status'); ?>
 </div>
 <div class="row">
 <?php echo $form->labelEx($model, 'serial_number'); ?>
-<?php echo $form->textField($model, 'serial_number'); ?>
+<?php echo $form->passwordField($model, 'serial_number'); ?>
 <?php echo $form->error($model, 'serial_number'); ?>
-</div>
-<div class="row">
-<?php echo $form->labelEx($model, 'stock'); ?>
-<?php echo $form->textField($model, 'stock'); ?>
-<?php echo $form->error($model, 'stock'); ?>
-</div>
-<div class="row">
-<?php echo $form->labelEx($model, 'history'); ?>
-<?php echo $form->textArea($model, 'history'); ?>
-<?php echo $form->error($model, 'history'); ?>
 </div>
 <div class="row buttons">
 <?php echo CHtml::submitButton('Add'); ?>

@@ -53,7 +53,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=db_sparelog',
+			'connectionString' => 'mysql:host=localhost;dbname=db_sparelog2',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
@@ -72,11 +72,11 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
+				
+//				array(
+//					'class'=>'CWebLogRoute',
+//				),
+//				
 			),
 		),
 	),

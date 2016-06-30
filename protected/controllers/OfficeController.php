@@ -94,6 +94,7 @@ class OfficeController extends Controller {
                     $member = new member;
                     $office ->attributes = $registration->attributes;
                     $office ->account_id = $account->id;
+                    $office ->id = $account->id;
                     $member->account_id= $account->id;
                     $member->name= $account->username;
                     if ($office ->save()&&$member->save()) {
